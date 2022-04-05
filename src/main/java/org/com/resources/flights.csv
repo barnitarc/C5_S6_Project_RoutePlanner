@@ -1,0 +1,11 @@
+From,To,Fare,Distance,Time(24hr)
+Mumbai,Chennai,3000,800,19:30
+Kolkata,Mumbai,2500,1500,23:45
+Mumbai,Bhopal,1200,500,04:30
+Bhopal,Kolkata,4500,900,08:45
+Bangalore,Mumbai,4000,1500,12:30
+Chennai,Hydrabad,1400,800,15:15
+Hydrabad,Kolkata,2500,1500,17:35
+Delhi,Jaipur,1500,300,20:30
+Kolkata,Delhi,2600,1000,23:00
+Chennai,Kolkata,4000,2000,14:30
