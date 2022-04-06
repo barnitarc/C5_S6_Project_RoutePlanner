@@ -60,6 +60,7 @@ public class FrontEnd {
     {
         try {
            List<Route> flights= obj.findDirectFlightFromLocation(loc);
+           //List<Route> sorted =obj.findSortedDirectFlightFromLocation(flights);
            //Arrays.sort(flights);
            //System.out.println(flights.toString());
            if(flights.size()==0)
@@ -67,19 +68,32 @@ public class FrontEnd {
            else {
            System.out.printf("%15s | %15s | %15s | %15s | %15s\n" ,"From","To","Fare","Distance","Time");
 			System.out.println("---------------------------------------------------------------------------------------------");
-			int c=0;
+			
            for(Route flight:flights)
            {
                if(flight!=null) {
                    //System.out.println("From :" + flight.getFrom() +"\n"+"To:" + flight.getTo() +"\n"+ "Fare :" + flight.getFare() +"\n"+ "Distance:" + flight.getDistance()+"\n"+"TravelTime:"+flight.getTravelTime());
                    //System.out.println();
                    System.out.format("%15s | %15s | %15s | %15s | %15s\n", flight.getFrom(),flight.getTo(),String.valueOf(flight.getFare()),flight.getDistance(),flight.getTravelTime());
-   					c=1;
+   				
                }
            }
-           if(c==0)
-        	   System.out.println("Sorry we dont have a flight from this loaction");
-
+           List<Route> sorted =obj.findSortedDirectFlightFromLocation(flights);
+           System.out.println("******************Showing result in sorted order********************");
+           System.out.println("---------------------------------------------------------------------------------------------");
+			
+           System.out.printf("%15s | %15s | %15s | %15s | %15s\n" ,"From","To","Fare","Distance","Time");
+			System.out.println("---------------------------------------------------------------------------------------------");
+			for(Route flight:sorted)
+	           {
+	               if(flight!=null) {
+	                   //System.out.println("From :" + flight.getFrom() +"\n"+"To:" + flight.getTo() +"\n"+ "Fare :" + flight.getFare() +"\n"+ "Distance:" + flight.getDistance()+"\n"+"TravelTime:"+flight.getTravelTime());
+	                   //System.out.println();
+	                   System.out.format("%15s | %15s | %15s | %15s | %15s\n", flight.getFrom(),flight.getTo(),String.valueOf(flight.getFare()),flight.getDistance(),flight.getTravelTime());
+	   				
+	               }
+	           }
+           
         }
         }
         catch(Exception e)

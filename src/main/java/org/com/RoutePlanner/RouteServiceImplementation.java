@@ -38,7 +38,7 @@ public class RouteServiceImplementation implements RouteServices {
          }
      }
      
-     Collections.sort(tempFlights);
+     //Collections.sort(tempFlights);
      if(tempFlights==null)
     	 throw new NoRouteFoundException("No Route Found");
      if(tempFlights!=null) {
@@ -48,6 +48,12 @@ public class RouteServiceImplementation implements RouteServices {
      
      throw new NoRouteFoundException("No Route Found");
     
+    }
+    
+    public List<Route> findSortedDirectFlightFromLocation(List<Route> r)
+    {
+    	Collections.sort(r);
+    	return r;
     }
     
     public boolean isAvailable(String from,String to)
@@ -109,34 +115,6 @@ public class RouteServiceImplementation implements RouteServices {
         }
         return null;
     }
-    @Override
-    public List<Route> findFlights(String from,String to)
-    {
-        
-        List<Route> tempFlights=new ArrayList<>();
-        
-        for(Route flight: routeArray)
-        {
-        	if(flight.getFrom().equalsIgnoreCase(from) && flight.getTo().equalsIgnoreCase(to))
-            {
-                tempFlights.add(flight);
-                
-            }
-            else if(flight.getFrom().equalsIgnoreCase(from) && isAvailable(flight.getTo(),to))
-            {
-            	
-            	tempFlights.add(flight);
-                
-                tempFlights.add(interFlight(flight.getTo(),to));
-                
-                
-            }
-        }
-        if(tempFlights!=null) {
-            return tempFlights;
-        }
-        return null;
-
-    }
-    }
+    
+}
 
